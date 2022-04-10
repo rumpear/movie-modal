@@ -6,6 +6,7 @@ body {
 }
 
 .modal {
+  // position: relative;
   // width: 100%;
   // max-width: 280px;
 
@@ -25,6 +26,7 @@ body {
 
   display: flex;
   flex-direction: column;
+  // flex-wrap: wrap;
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
@@ -60,7 +62,7 @@ body {
   }
 }
 
-.movie-info {
+.modal__info {
   @media screen and (min-width: 768px) {
     width: 264px;
   }
@@ -165,6 +167,8 @@ tbody {
 }
 
 .modal-table__desc {
+  // position: relative;
+  // text-transform: uppercase;
   // padding-bottom: 800px;
 
   &:last-child {
@@ -186,4 +190,14 @@ tbody {
   margin-bottom: 20px;
   font-size: 12px;
   line-height: 1.6;
+}
+
+// .movie-card {
+//   display: flex;
+//   flex-direction: row;
+// }
+
+.movie-content {
+  display: flex;
+  flex-direction: row;
 }
