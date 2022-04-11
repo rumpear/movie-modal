@@ -8,6 +8,9 @@ const refs = {
 
   modalPoster: document.querySelector('.modal__poster'),
   movieContent: document.querySelector('.movie-wrapper'),
+
+  addToWatchBtn: document.querySelector('.watch-btn'),
+  addToQueueBtn: document.querySelector('.queue-btn'),
 };
 console.log(refs.modal);
 
@@ -54,9 +57,7 @@ import axios from 'axios';
 const fetchMovie = async () => {
   const BASE_URL = 'https://api.themoviedb.org/3/movie/';
   const API_KEY = '5e25dc89cc9570e2f881766abec20685';
-  // const API_KEY =
-  //   'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ZTI1ZGM4OWNjOTU3MGUyZjg4MTc2NmFiZWMyMDY4NSIsInN1YiI6IjYyNTJlMDBmNDE0NjVjNGJkODEyOTQwNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.mb-pDO4ryeaUUqGag7uXkVrihGoFnOVWU8_cmQRovS8';
-  const movie_id = 330;
+  const movie_id = 120;
 
   try {
     const response = await axios.get(`${BASE_URL}/${movie_id}?api_key=${API_KEY}&language=en-US`);
@@ -128,3 +129,28 @@ const createCardMarkup = ({
   // refs.movieContent.innerHTML = markup;
   refs.movieContent.insertAdjacentHTML('afterbegin', markup);
 };
+
+
+const onAddToWatchBtnClick = () => {
+  refs.addToWatchBtn.classList.toggle('btn-is-active');
+
+  if (refs.addToWatchBtn.classList.contains('btn-is-active')) {
+    refs.addToWatchBtn.textContent = 'added to watched';
+  } else {
+    refs.addToWatchBtn.textContent = 'add to watched';
+  }
+};
+
+refs.addToWatchBtn.addEventListener('click', onAddToWatchBtnClick);
+
+const onAddToQueueBtnClick = () => {
+  refs.addToQueueBtn.classList.toggle('btn-is-active');
+
+  if (refs.addToQueueBtn.classList.contains('btn-is-active')) {
+    refs.addToQueueBtn.textContent = 'added to queue';
+  } else {
+    refs.addToQueueBtn.textContent = 'add to queue';
+  }
+};
+
+refs.addToQueueBtn.addEventListener('click', onAddToQueueBtnClick);
